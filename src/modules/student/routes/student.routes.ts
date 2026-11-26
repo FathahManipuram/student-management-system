@@ -1,8 +1,11 @@
 import { Router } from "express";
 
 import { studentController } from "../module/student.module.js";
+import { authenticate } from "../../../middlewares/auth.middleware.js";
 
 const router = Router();
+
+router.use(authenticate)
 
 router.post("/", studentController.createStudent);
 router.get("/", studentController.getAllStudent);
