@@ -13,7 +13,7 @@ export class StudentController {
 
       res.status(201).json({
         success: true,
-        message: "student created successfully",
+        message: "Student created successfully",
         data: student,
       });
     } catch (err) {
@@ -58,7 +58,7 @@ export class StudentController {
 
       res.status(200).json({
         success: true,
-        message: "Retrived student successfully",
+        message: "Retrieved student successfully",
         data: student,
       });
     } catch (err) {
