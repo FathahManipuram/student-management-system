@@ -1,7 +1,7 @@
 import express from 'express'
-import studentRoutes from "../src/modules/student/routes/student.routes.js"
 import { errorHandler } from './middlewares/error.middleware.js'
-
+import studentRoutes from "../src/modules/student/routes/student.routes.js";
+import userRoutes from "../src/modules/user/routes/user.routes.js"
 
 const app= express()
 
@@ -15,6 +15,7 @@ app.get("/health", (req, res)=>{
 })
 
 app.use("/api/students", studentRoutes)
+app.use("/api/users", userRoutes)
 
 
 app.use(errorHandler)

@@ -21,7 +21,7 @@ export class UserService{
 		const existingUser = await this.userRepository.findByEmail(email)
 
 		if(existingUser){
-			throw new AppError("Email allready registered", 409)
+			throw new AppError("Email already registered", 409)
 		}
 
 		const password_hash= await hashPassword(data.password)
