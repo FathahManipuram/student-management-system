@@ -21,20 +21,17 @@ export const authenticate : RequestHandler= (req, res, next)=>{
 
 		const token= authHeader?.split(" ")[1]
 
-		//const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzk1Njg0MTg0LCJleHAiOjE3OTU3NzA1ODR9.LILYmMg88FHR2yiydJxv9mlGjww5CqVo55N3dyG5_kY";
-
+		
 		if(!token){
 			throw new AppError("Invalid authentication token", 401);
 		}
 
 		const secret = process.env.JWT_SECRET;
-		console.log(secret)
+		
 
 		const decoded = verifyToken(token, secret as string);
 
-		console.log("decoded: ", decoded)
-		console.log("type decoded: ", typeof decoded);
-
+	
 		 if (typeof decoded === "string") {
        throw new AppError("Invalid authentication token", 401);
      }
